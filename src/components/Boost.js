@@ -9,6 +9,7 @@ const Boost = () => {
             <Button
                 name="Get Started" 
                 backgroundColor="hsl(180, 66%, 49%)"
+                hoverBackgroundColor={"hsl(180, 66%, 75%)"}
                 borderRadius="50px"
                 color="white"
             />

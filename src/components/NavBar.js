@@ -16,6 +16,7 @@ const NavBar = () => {
                 <Button 
                 name="Login" 
                 backgroundColor="white"
+                hoverBackgroundColor={"hsl(180, 66%, 75%)"}
                 borderRadius="50px"
                 color="hsl(0, 0%, 75%)"
                 />

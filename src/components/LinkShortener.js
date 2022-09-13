@@ -1,145 +1,99 @@
-import React,{useState, useRef} from 'react'
-import Button from './Button'
-import axios from 'axios';
-import StyledLinkSection from './styles/LinkShortener.styled'
-import ShortenedLink from './ShortenedLink';
-import db from '../db'; 
-// import { useLiveQuery } from "dexie-react-hooks";
+import React, { useState, useRef } from "react";
+import Button from "./Button";
+import axios from "axios";
+import StyledLinkSection from "./styles/LinkShortener.styled";
+import ShortenedLink from "./ShortenedLink";
 
+const LinkShortener = () => {
+  const [data, setData] = useState([]);
 
-const LinkShortener = (props) => {
-    // const {getUrl, newDataFunction, setUrl, url} = props;
+  const [isLoading, setIsLoading] = useState(false);
+  const inputValue = useRef(null);
+  const inputForm = useRef(null);
+  const [test, setTest] = useState(false);
+  
 
-    // const handleClick = (event) => {
-    //     event.preventDefault();
-    //     console.log('good');
-    //     console.log(url);
-    //     setUrl('')
-        
-    // }
+  //This function is used to get data from the api and save the data in the data state
 
-    const [url] = useState("");
-    const [data, setData] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const inputValue = useRef(null);
-    const inputForm = useRef(null);
-    const [test,setTest] = useState(false);
+  const getData = async () => {
+    setIsLoading(true);
+    await axios
+      .get(`https://api.shrtco.de/v2/shorten?url=${inputValue.current.value}`)
+      .then((response) => {
+        setData(response.data);
+        setIsLoading(false);
+      });
+  };
 
+  const { full_short_link, original_link, code } = data.result || {};
 
-    // const getUrl = () => {
-    //     //setUrl(event.target.value)
-    //     //console.log(event.target.value);
-    //     setUrl(inputValue.current.value);
+  //This function executes the check and get data function when called when the "shorten it" button is clicked
 
-    // }
+  function allFunctionsOnFormSubmit(event) {
+    event.preventDefault();
+    getData();
+    check();
+    setTest(true);
+  }
 
-    const getData = async () => {
-      setIsLoading(true)
-      await axios.get(`https://api.shrtco.de/v2/shorten?url=${inputValue.current.value}`)
-        .then((response) => {
-          setData(response.data)
-          setIsLoading(false)
+  const userData = [];
+  let dataFromStorage;
 
-        })
-        console.log('is working');
+  //This saves the links in a session storage
+
+  function saveAllRequiredLinks() {
+    if (original_link) {
+      let apiLinks = {
+        original: original_link,
+        full: full_short_link,
+        code: code,
+      };
+
+      userData.push(apiLinks);
+
+      sessionStorage.setItem("links", JSON.stringify(userData));
+      dataFromStorage = JSON.parse(sessionStorage.getItem("links"));
     }
+  }
+  if (test) {
+    saveAllRequiredLinks();
+    resetForm();
+  }
 
-    const {full_short_link, original_link} = data.result || {}
-    
-    // async function storeLinksInDB() {
-    //     try {
-    //         full_short_link !== undefined && 
-    //         await db.links.add({
-    //             original_link,
-    //             full_short_link
-    //         });
-    //         console.log(`links were added successfully `);
-    //     } catch (error) {
-    //         console.log('links were not added successfully');
-
-    //     }
-    //     console.log('is truly working');
-    //     try {
-    //         resetForm()
-    //         // check()
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-
-    // }
-
-    function twoFunctions(event){
-        event.preventDefault();
-        // getUrl();
-        //getUrl();
-
-        getData();
-        check();
-        resetForm();
-        
-        setTest(true);
-        console.log(original_link);
-
-        return false;
-
+  function check() {
+    if (inputValue.current.value === "") {
+      setIsLoading(false);
     }
+  }
+  //This resets the form after it has been submitted
 
-    var userData = [];
-    let users = {oLink: '', fLink:''}
-
-
-    function saveUserData(){
-        if(original_link){
-        // userData.push([full_short_link,original_link])
-        // userData.push(['test', '2'])
-        // userData.push(['good', '3'])
-        // userData.push(['fine', '4'])
-        users.oLink= original_link;
-        users.fLink = full_short_link
-        }
-
-        console.log(userData);
-        console.log(users);
+  function resetForm() {
+    if (isLoading === false && inputValue.current.value) {
+      inputForm.current.reset();
     }
-    test ? saveUserData() : console.log('ffffffgggghhh');
+  }
 
-        // const urls = useLiveQuery(
-        //     () => db.links.reverse().toArray()
-        // );
+  return (
+    <StyledLinkSection>
+      <form ref={inputForm} onSubmit={allFunctionsOnFormSubmit}>
+        <input
+          type="text"
+          ref={inputValue}
+          placeholder="Shorten a link here..."
+        />
+        <Button
+          name="Shorten it!"
+          backgroundColor="hsl(180, 66%, 49%)"
+          borderRadius="10px"
+          type="submit"
+        />
+      </form>
 
-        function check(){
-            if(inputValue.current.value === ''){
-                setIsLoading(false)
-                console.log('set to false');
-            }
-            
-        }
+      {isLoading && "Loading"}
 
-        function resetForm(){
-            if(isLoading === false && inputValue.current.value){
-                inputForm.current.reset();
-            }
-        }
+      <ShortenedLink userInfo={dataFromStorage} />
+    </StyledLinkSection>
+  );
+};
 
-    return (
-        <StyledLinkSection>
-            <form ref={inputForm} onSubmit={twoFunctions}>
-                <input type="text" ref={inputValue} placeholder="Shorten a link here..."/>
-                <Button
-                name="Shorten it!" 
-                backgroundColor="hsl(180, 66%, 49%)"
-                borderRadius="10px"
-                type="submit"
-                />
-            </form>
-
-            {isLoading && 'Loading'}          
-            
-            <ShortenedLink fullShortLink={full_short_link} originalLink={original_link} userInfo={userData} />
-            
-        </StyledLinkSection>
-    )
-}
-
-export default LinkShortener
+export default LinkShortener;

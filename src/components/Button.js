@@ -6,8 +6,10 @@ const Button = (props) => {
         <Styledbutton 
             backgroundColor={props.backgroundColor}
             borderRadius={props.borderRadius}
+            hoverBackgroundColor={props.hoverBackgroundColor}
             color={props.color}
             type={props.type}
+            onClick={props.onClick}
             >
             {props.name}
         </Styledbutton>

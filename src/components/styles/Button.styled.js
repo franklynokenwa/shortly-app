@@ -15,10 +15,19 @@ const Styledbutton = styled.button`
     font-weight: 500;
     font-size: 16px;
 
-    &:hover{
-        background-color: hsl(180, 66%, 75%);
+    :hover{
+        background-color: ${(props) => props.hoverBackgroundColor};
         transition: 0.5s ease-in-out;
     }
+    :active{
+        background-color:green;
+        
+    }
+    :visited{
+        background-color:red;
+        
+    }
+    
 
 `
 

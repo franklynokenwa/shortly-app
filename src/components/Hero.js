@@ -11,6 +11,7 @@ const Hero = () => {
                 <p>Build your Brand's recognition and get detailed insights on how your links are performing </p>
                 <Button name="Get Started"
                 backgroundColor="hsl(180, 66%, 49%)"
+                hoverBackgroundColor={"hsl(180, 66%, 75%)"}
                 borderRadius="50px"
                 color="white"
                 />
