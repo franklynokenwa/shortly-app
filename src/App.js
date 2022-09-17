@@ -1,5 +1,3 @@
-import './App.css';
-
 import React,{useState, useEffect, useReducer} from 'react';
 import NavBar from './components/NavBar';
 import GlobalStyles from './components/styles/GlobalStyles.js';
@@ -9,6 +7,7 @@ import ShortlyDetails from './components/ShortlyDetails';
 import Boost from './components/Boost';
 import Footer from './components/Footer';
 import ApiDataContext from './components/ApiDataContext';
+import StyledApp from './App.styled';
 
 
 const App = () => {
@@ -55,7 +54,7 @@ const App = () => {
     console.log(apiData.result); */
   
   return (
-    <div>
+    <StyledApp>
       <GlobalStyles/>
       <NavBar/>
       <Hero/>
@@ -63,7 +62,7 @@ const App = () => {
       <ShortlyDetails/>
       <Boost/>
       <Footer/>
-    </div>
+    </StyledApp>
   )
 }
 

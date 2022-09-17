@@ -4,7 +4,7 @@ const StlyedNavBar = styled.div`
     display: flex;
     justify-content: space-between;
     height: 8rem;
-    padding: 0 4rem;
+    padding: 0 2rem;
 
     nav{
         display: flex;
@@ -20,6 +20,7 @@ const StlyedNavBar = styled.div`
     }
     p{
         color:hsl(0, 0%, 75%);
+        cursor: pointer;
     }
     p:hover{
         color:hsl(0, 0%, 49%);
@@ -36,6 +37,17 @@ const StlyedNavBar = styled.div`
         width: 15rem;
         justify-content: space-evenly;
         align-items: center;
+    }
+    @media screen and (max-width:768px){
+        img{
+            width: 8rem;
+        }
+        nav{
+            width: 18rem;
+            position: relative;
+            left: 2rem;
+            margin-right: 2rem;
+        }
     }
 `
 

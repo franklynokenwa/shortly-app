@@ -16,7 +16,7 @@ const ShortenedLink = (props) => {
     console.log("test");
     // setButtonText("Copied");
     // setButtonBackgroundColor('black')
-    setButtonText("Copied");
+    setButtonText("Copied!");
   }
   //  name={a}
   //   backgroundColor={buttonBackgroundColor}
@@ -25,8 +25,8 @@ const ShortenedLink = (props) => {
     <StyledShortenedLink>
       {userInfo?.map((item) => {
         return (
-          <div key={item.code}>
-            <p>{item.original}</p>
+          <div className="container" key={item.code}>
+            <p className="container-original">{item.original}</p>
             <div>
               <p id="fullLink">{item.full}</p>
               <br />
