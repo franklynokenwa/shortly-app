@@ -29,9 +29,8 @@ const StyledShortenedLink = styled.div`
     }
 
     @media screen and (max-width:768px){
-        display: flex;
         width: 36rem;
-        flex-direction: row;
+        margin-top: 4rem;
 
         div{
             flex-direction: column;

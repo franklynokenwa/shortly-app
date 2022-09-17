@@ -28,6 +28,12 @@ const StyledFooter = styled.footer`
     a{
         text-decoration: none;
     }
+    @media screen and (max-width:768px){
+        flex-flow: column wrap;
+        align-items: center;
+        text-align: center;
+
+    }
 
 `
 export default StyledFooter

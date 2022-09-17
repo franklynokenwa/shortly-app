@@ -34,6 +34,89 @@ const StyledDetailsSection = styled.section`
         top: 16rem;
     }
 
+    @media screen and (max-width:768px){
+        margin-top: 2rem;
+        section{
+            text-align: center;
+            width: 40rem;
+        }
+        section p{
+            width: 28rem;
+        }
+        hr{
+            transform: rotate(90deg);
+            top: 37rem;
+            width: 58rem;
+            left: -9rem;
+        }
+                
+    }
+    @media screen and (max-width:500px){
+        margin-top: 3rem;
+        section{
+            width: 27rem;
+            position: relative;
+            left: -2rem;
+        }
+        section h1{
+            font-size: 2rem;
+        }
+        hr{
+            left: -17.2rem;
+        }
+                        
+    }
+    @media screen and (max-width:414px){
+        section{
+            width: 25rem;
+            position: relative;
+            left: -3rem;
+        }
+        section h1{
+            font-size: 2rem;
+        }
+        section p{
+            width: 24rem;
+            font-size: 1.2rem;
+        }
+        hr{
+            left: -19.99rem;
+        }
+    }
+    @media screen and (max-width:375px){
+        section{
+            width: 22rem;
+        
+        }
+        section h1{
+            font-size: 2rem;
+        }
+        section p{
+            width: 22rem;
+        }
+        hr{
+            left: -21.2rem;
+        }
+    }
+    @media screen and (max-width:320px){
+        section{
+            width: 21rem;
+        }
+        section h1{
+            font-size: 1.7rem;
+            width: 18rem;
+        } 
+        section p{
+            width: 20rem;
+            font-size: 1rem;
+            position: relative;
+            left: -1rem;
+        }
+        hr{
+            left: -22.9rem;
+        }
+    }
+
 `
 
 export default StyledDetailsSection

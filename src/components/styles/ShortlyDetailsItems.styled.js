@@ -6,12 +6,14 @@ const StyledDetailsItemSection = styled.div`
     padding: 2rem;
     margin-top: 4rem;
     border-radius: 10px;
+    z-index: 1;
+
 
     aside{
         width: 5rem;
         height: 5rem;
         border-radius: 80%;
-        background-color: hsl(255, 11%, 22%);
+        background-color: #3a3052;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -33,6 +35,49 @@ const StyledDetailsItemSection = styled.div`
         font-size: 1rem;
         margin-top: -0.5rem;
 
+    }
+    @media screen and (max-width:768px){
+        text-align: center;
+        aside{
+            margin: 0 auto;
+            width: 7rem;
+            height: 7rem;
+            top: -5rem;
+        }
+        div h1{
+            width: 18rem;
+            margin-top: -2rem;
+        }
+        div p{
+            width: 19rem;
+        }
+                
+    }
+    @media screen and (max-width:500px){
+        aside{
+            margin: 0 auto;
+            width: 7rem;
+            height: 7rem;
+            top: -5rem;
+        }
+                
+    }
+    @media screen and (max-width:414px){
+        
+    }
+    @media screen and (max-width:375px){
+        width: 18rem;
+    }
+    @media screen and (max-width:320px){
+        width: 14rem;
+        
+        div h1{
+            width: 14rem;
+            margin-top: -2rem;
+        }
+        div p{
+            width: 15.5rem;
+        }
     }
 
 `
