@@ -11,6 +11,31 @@ const StyledDiv = styled.div`
     Button{
         width: 8rem;
     }
+    @media screen and (max-width:500px){
+        h1{
+            width: 28rem;   
+            font-size:2rem;
+            position: relative;
+            left:-1rem
+        }
+    }
+    @media screen and (max-width:414px){
+        h1{
+            width: 25rem;   
+            left:-2rem
+        }
+    }
+    @media screen and (max-width:375px){
+        h1{
+            font-size: 1.5rem;
+            left:-3rem
+        }
+    }
+    @media screen and (max-width:320px){
+        h1{
+            left:-5.3rem
+        }
+    }
 
 `
 

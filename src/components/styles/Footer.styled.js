@@ -9,8 +9,8 @@ const StyledFooter = styled.footer`
     
 
     img{
-        width:7rem;
-        height:4rem;
+        width: 15rem;
+        height: 5rem;
         filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(319deg) brightness(103%) contrast(101%)
     }
 
@@ -32,6 +32,10 @@ const StyledFooter = styled.footer`
         flex-flow: column wrap;
         align-items: center;
         text-align: center;
+        img{
+            width: 15rem;
+            height: 5rem;
+        }
 
     }
 

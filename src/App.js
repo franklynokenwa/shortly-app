@@ -1,13 +1,13 @@
-import React,{useState, useEffect, useReducer} from 'react';
-import NavBar from './components/NavBar';
-import GlobalStyles from './components/styles/GlobalStyles.js';
+import React from 'react';
+// import NavBar from './components/NavBar';
+import StyledApp from './App.styled';
+import Boost from './components/Boost';
+import Footer from './components/Footer';
 import Hero from './components/Hero';
 import LinkShortener from './components/LinkShortener';
 import ShortlyDetails from './components/ShortlyDetails';
-import Boost from './components/Boost';
-import Footer from './components/Footer';
-import ApiDataContext from './components/ApiDataContext';
-import StyledApp from './App.styled';
+import GlobalStyles from './components/styles/GlobalStyles.js';
+import Test2 from './components/Test2';
 
 
 const App = () => {
@@ -56,12 +56,13 @@ const App = () => {
   return (
     <StyledApp>
       <GlobalStyles/>
-      <NavBar/>
+      <Test2/>
       <Hero/>
       <LinkShortener/>
       <ShortlyDetails/>
       <Boost/>
       <Footer/>
+      
     </StyledApp>
   )
 }

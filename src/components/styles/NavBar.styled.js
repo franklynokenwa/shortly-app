@@ -6,13 +6,18 @@ const StlyedNavBar = styled.div`
     height: 8rem;
     padding: 0 2rem;
 
+    section{
+        width: 100%;
+        display: flex;
+        
+        justify-content: space-between;
+    }
+
     nav{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        width: 50%;
         align-items: center;
-        width: 20rem;
-        position: relative;
-        left: -7rem;
     }
 
     a{
@@ -27,9 +32,10 @@ const StlyedNavBar = styled.div`
     }
 
     img{
-        width:20rem;
-        height:5rem;
-        margin: auto 0;
+        width: 15rem;
+        height: 5rem;
+        padding-left: 1.2rem;
+        margin-top: 1.5rem;
         cursor: pointer;
     }
     div{
@@ -38,16 +44,67 @@ const StlyedNavBar = styled.div`
         justify-content: space-evenly;
         align-items: center;
     }
+    aside{
+        display: none;
+    }
+    
     @media screen and (max-width:768px){
+        flex-direction: column;
+        width: 100%;
         img{
-            width: 8rem;
+            /* width: 8rem; */
+        }
+        .sectionExpanded nav{
+            background-color: gold;
+            z-index: 1;
+            flex-direction: column;
+            display: block
+
+        }
+        .sectionClosed nav{
+            display: block;
+            background-color: black;
         }
         nav{
-            width: 18rem;
-            position: relative;
-            left: 2rem;
-            margin-right: 2rem;
+            flex-direction: column;
+
         }
+        
+        div{
+            width: 100%;
+            flex-direction: column;
+
+        }
+        /* .navHide{
+            display: none;
+        } */
+        /* .navHide{
+            background-color: green;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .navShow{
+            background-color: red;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        } */
+        aside{
+            display: block;
+            font-size: 5rem;
+            z-index: 1;
+            position: relative;
+            top: -25rem;
+            left: 40rem;
+            width: 4rem;
+            cursor: pointer;
+            background-color: red;
+            
+        }
+        
     }
 `
 

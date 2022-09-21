@@ -10,7 +10,7 @@ import StyledSocialMediaIcons from './styles/SocialMediaIcons.styled'
 const Footer = () => {
     return (
         <StyledFooter>
-            <img src={logo} alt="The logo" />
+            <a href='#'><img src={logo} alt="The logo" /></a>
             <div>
                 <h1>Features</h1>
                 <div>
