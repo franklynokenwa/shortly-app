@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import linkContainerBackgroundImage from "../../images/bg-shorten-desktop.svg";
-import Button from "../Button";
 
 const StyledLinkSection = styled.section`
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
@@ -44,6 +43,7 @@ const StyledLinkSection = styled.section`
 
   Button {
     width: 8rem;
+    color: white;
   }
   span i {
     position: relative;
