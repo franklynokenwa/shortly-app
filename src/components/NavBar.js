@@ -4,38 +4,59 @@ import Button from "./Button";
 import StlyedNavBar from "./styles/NavBar.styled";
 
 const NavBar = () => {
-  const [navItems, setNavItems] = useState(false);
+  const [show, setShow] = useState();
 
-//   const mobileNavigation = () => {
-//     setNavItems(!navItems);
-//     console.log("clicked");
-//     console.log(navItems);
+  const ToggleData = () => {
+    setShow(!show);
+  };
 
-//     if(navItems){
-//         console.log('true');
-//       } else {
-//         console.log('false');
-//       }
-//   }
-  
-  //className={navItems === true ? "navShow" : "navHide"}
   return (
-    <StlyedNavBar navItems={navItems}>
+    <StlyedNavBar>
       <a href="#">
         <img src={logo} alt="The logo" />
       </a>
-      <section className = {navItems ? "sectionExpanded" : "sectionClosed" }>
-        <nav> 
+      <section>
+        <nav>
           <p>Features</p>
           <p>Pricing</p>
           <p>Resources</p>
         </nav>
-        {/* <section>
-                <p>Features</p>
-                <p>Pricing</p>
-                <p>Resources</p>
-            </section> */}
-        <div>
+        {
+          <div className="mobileNavBar">
+            <div onClick={ToggleData} className="hamburgerIcon">
+              {!show ? <> &#8801;</> : <>&#10005;</>}
+            </div>
+            {show ? (
+              <div className="responsiveNavMainContainer">
+                <div className="responsiveNavContainer">
+                  <div className="responsiveNavItems">
+                    <p>Features</p>
+                    <p>Pricing</p>
+                    <p>Resources</p>
+                  </div>
+
+                  <div className="mobileNavButtons">
+                    <Button
+                      name="Login"
+                      backgroundColor="white"
+                      borderRadius="50px"
+                      color="hsl(0, 0%, 75%)"
+                    />
+                    <Button
+                      name="Sign Up"
+                      backgroundColor="hsl(180, 66%, 49%)"
+                      hoverBackgroundColor={"hsl(180, 66%, 75%)"}
+                      borderRadius="50px"
+                      color="white"
+                    />
+                  </div>
+                </div>
+              </div>
+            ) : null}
+          </div>
+        }
+
+        <div className="navButtons">
           <Button
             name="Login"
             backgroundColor="white"
@@ -51,9 +72,6 @@ const NavBar = () => {
           />
         </div>
       </section>
-      <aside onClick={() => setNavItems(!navItems)}>
-      {navItems ? <>&#10005;</> : <> &#8801;</>}
-      </aside>
     </StlyedNavBar>
   );
 };

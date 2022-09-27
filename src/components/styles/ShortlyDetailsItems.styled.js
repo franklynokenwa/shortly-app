@@ -6,7 +6,6 @@ const StyledDetailsItemSection = styled.div`
     padding: 2rem;
     margin-top: 4rem;
     border-radius: 10px;
-    z-index: 1;
 
 
     aside{
@@ -38,6 +37,8 @@ const StyledDetailsItemSection = styled.div`
     }
     @media screen and (max-width:768px){
         text-align: center;
+        z-index: -0;
+
         aside{
             margin: 0 auto;
             width: 7rem;

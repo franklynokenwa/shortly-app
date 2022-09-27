@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const StyledHeroSection = styled.section`
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 8rem;
     padding: 0 4rem;
 
     div{
@@ -30,6 +30,7 @@ const StyledHeroSection = styled.section`
 
     @media screen and (max-width:768px){
         flex-direction: column-reverse;
+        z-index: -1;
                 
     }
     @media screen and (max-width:500px){

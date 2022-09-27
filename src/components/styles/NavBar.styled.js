@@ -1,111 +1,173 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const StlyedNavBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 8rem;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+
+  section {
+    width: 100%;
     display: flex;
+
     justify-content: space-between;
-    height: 8rem;
-    padding: 0 2rem;
+  }
 
-    section{
-        width: 100%;
-        display: flex;
-        
-        justify-content: space-between;
+  nav {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  p {
+    color: hsl(0, 0%, 75%);
+    cursor: pointer;
+  }
+  p:hover {
+    color: hsl(0, 0%, 49%);
+  }
+
+  img {
+    width: 13rem;
+    height: 4rem;
+    padding-left: 2rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    align-items: center;
+  }
+  .navButtons {
+    display: flex;
+    width: 15rem;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 8rem;
+  }
+  aside {
+    display: none;
+  }
+  .mobileNavBar {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    nav {
+      display: none;
+    }
+    .hamburgerIcon {
+      font-size: 4rem;
+      width: 100vh;
+      cursor: pointer;
+      position: relative;
+      right: -41.5rem;
+    }
+    .navButtons {
+      display: none;
+    }
+    .responsiveNavItems {
+      text-align: center;
+    }
+    .mobileNavBar {
+      display: block;
+      position: relative;
+      left: -20rem;
+    }
+    .mobileNavButtons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .mobileNavButtons button {
+      margin-bottom: 2rem;
+      width: 10rem;
+    }
+    .responsiveNavItems p {
+      padding: 1rem;
+    }
+    .responsiveNavMainContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 55rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      margin-top: 1rem;
+      z-index: 1;
+    }
+    .responsiveNavContainer {
+      display: flex;
+      flex-direction: column;
+      width: 30rem;
+      border-radius: 10px;
+      position: relative;
+      margin-top: -14rem;
+      background-color: #3a3052;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .responsiveNavContainer {
+      position: relative;
+      width: 20rem;
+      left: -7rem;
+    }
+    img {
+      width: 11rem;
+      height: 3rem;
     }
 
-    nav{
-        display: flex;
-        justify-content: space-around;
-        width: 50%;
-        align-items: center;
+    .hamburgerIcon {
+      right: -30rem;
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .responsiveNavContainer {
+      left: -9rem;
     }
 
-    a{
-        text-decoration: none;
+    .hamburgerIcon {
+      right: -25rem;
     }
-    p{
-        color:hsl(0, 0%, 75%);
-        cursor: pointer;
+  }
+
+  @media screen and (max-width: 375px) {
+    .responsiveNavContainer {
+      left: -10.5rem;
     }
-    p:hover{
-        color:hsl(0, 0%, 49%);
+    .hamburgerIcon {
+      right: -23rem;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .responsiveNavContainer {
+      left: -9.5rem;
+      top: 3rem;
+      width: 17rem;
+    }
+    img {
+      width: 9rem;
+      height: 3rem;
+      margin-left: -1rem;
+    }
+    .responsiveNavItems p {
+      padding: 0rem;
     }
 
-    img{
-        width: 15rem;
-        height: 5rem;
-        padding-left: 1.2rem;
-        margin-top: 1.5rem;
-        cursor: pointer;
+    .hamburgerIcon {
+      right: -23rem;
     }
-    div{
-        display:flex;
-        width: 15rem;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    aside{
-        display: none;
-    }
-    
-    @media screen and (max-width:768px){
-        flex-direction: column;
-        width: 100%;
-        img{
-            /* width: 8rem; */
-        }
-        .sectionExpanded nav{
-            background-color: gold;
-            z-index: 1;
-            flex-direction: column;
-            display: block
+  }
+`;
 
-        }
-        .sectionClosed nav{
-            display: block;
-            background-color: black;
-        }
-        nav{
-            flex-direction: column;
-
-        }
-        
-        div{
-            width: 100%;
-            flex-direction: column;
-
-        }
-        /* .navHide{
-            display: none;
-        } */
-        /* .navHide{
-            background-color: green;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-        .navShow{
-            background-color: red;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        } */
-        aside{
-            display: block;
-            font-size: 5rem;
-            z-index: 1;
-            position: relative;
-            top: -25rem;
-            left: 40rem;
-            width: 4rem;
-            cursor: pointer;
-            background-color: red;
-            
-        }
-        
-    }
-`
-
-export default StlyedNavBar
+export default StlyedNavBar;

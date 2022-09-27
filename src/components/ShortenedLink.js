@@ -2,24 +2,18 @@ import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Button from "./Button";
 import StyledShortenedLink from "./styles/ShortenedLinks.styled";
-import SweetAlert2 from "react-sweetalert2";
 
 const ShortenedLink = (props) => {
   const [copied, setCopied] = useState(false);
-  const [swalProps, setSwalProps] = useState({});
   const { userInfo } = props;
   const [buttonText, setButtonText] = useState("Copy");
-  const [buttonBackgroundColor, setButtonBackgroundColor] = useState("hsl(180, 66%, 49%)");
-  const [hoverColor,setHoverColor] = useState("hsl(180, 66%, 75%)")
+  const [buttonBackgroundColor, setButtonBackgroundColor] =
+    useState("hsl(180, 66%, 49%)");
+  const [hoverColor, setHoverColor] = useState("hsl(180, 66%, 75%)");
 
   function changeButtonColorAndText() {
-    console.log("test");
-    // setButtonText("Copied");
-    // setButtonBackgroundColor('black')
     setButtonText("Copied!");
   }
-  //  name={a}
-  //   backgroundColor={buttonBackgroundColor}
 
   return (
     <StyledShortenedLink>
@@ -36,26 +30,19 @@ const ShortenedLink = (props) => {
                 text={item.full}
                 onCopy={() => {
                   setCopied(true);
-                  setButtonBackgroundColor("hsl(255,11%,22%)")
-                  setHoverColor(null)
+                  setButtonBackgroundColor("hsl(255,11%,22%)");
+                  setHoverColor(null);
                 }}
               >
                 <Button
-                    backgroundColor={buttonBackgroundColor}
-                    hoverBackgroundColor={hoverColor}
-                    onClick={changeButtonColorAndText}
-                    borderRadius="10px"
-                    name={buttonText}
-                    color={"white"}
-                />
-                {/* <button
                   backgroundColor={buttonBackgroundColor}
+                  hoverBackgroundColor={hoverColor}
                   onClick={changeButtonColorAndText}
-                >
-                  {buttonText}
-                </button> */}
+                  borderRadius="10px"
+                  name={buttonText}
+                  color={"white"}
+                />
               </CopyToClipboard>
-              
             </div>
           </div>
         );

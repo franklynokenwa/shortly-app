@@ -1,13 +1,12 @@
 import React from 'react'
-import StyledDetailsSection from './styles/ShortlyDetails.styled'
-import ShortlyDetailsItems from './ShortlyDetailsItems'
 import brandRecognitionIcon from '../images/icon-brand-recognition.svg'
 import detailsRecordsLogo from '../images/icon-detailed-records.svg'
 import fullyCustomizableLogo from '../images/icon-fully-customizable.svg'
+import ShortlyDetailsItems from './ShortlyDetailsItems'
 import StyledContainer from './styles/Container.styled'
 import DetailsContainer2 from './styles/DetailsContainer2.styled'
 import DetailsContainer3 from './styles/DetailsContainer3.styled'
-import ShortenedLink from './ShortenedLink'
+import StyledDetailsSection from './styles/ShortlyDetails.styled'
 
 const ShortlyDetails = () => {
     return (
