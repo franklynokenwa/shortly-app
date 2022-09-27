@@ -39,6 +39,8 @@ const StyledDetailsSection = styled.section`
         section{
             text-align: center;
             width: 40rem;
+            margin-top: 22rem;
+            
         }
         section p{
             width: 28rem;

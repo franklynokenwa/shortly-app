@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const StyledShortenedLink = styled.div`
     
@@ -31,6 +31,7 @@ const StyledShortenedLink = styled.div`
     @media screen and (max-width:768px){
         width: 36rem;
         margin-top: 4rem;
+        margin-bottom: 5rem;
 
         div{
             flex-direction: column;
